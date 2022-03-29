@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
 
-    public static int[] heroesHealth = {270, 280, 190, 300}; //воин, маг и кинетик
+    public static int[] heroesHealth = {270, 280, 190, 300};
     public static int[] heroesDamage = {20, 15, 25, 0};
     public static String[] heroesAttackType = {"Physical", "Magical", "Kinetic", "Medic"};
 
@@ -23,7 +23,6 @@ public class Main {
                 int randomMedic = random.nextInt(heroesHealth.length);
                 if (heroesHealth[randomMedic] != heroesHealth[indexMedic]) {
                     heroesHealth[randomMedic] = heroesHealth[randomMedic] + medicHelp;
-                    System.out.println(heroesHealth[randomMedic] + heroesAttackType[randomMedic]);
                     break;
                 }
             }
