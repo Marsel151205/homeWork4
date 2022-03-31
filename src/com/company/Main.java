@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
 
-    public static int[] heroesHealth = {270, 280, 190, 300};
+    public static int[] heroesHealth = {270, 280, 260, 300};
     public static int[] heroesDamage = {20, 15, 25, 0};
     public static String[] heroesAttackType = {"Physical", "Magical", "Kinetic", "Medic"};
 
@@ -18,11 +18,13 @@ public class Main {
 
     public static void medic() {
         for (int i = 0; i < heroesHealth.length; i++) {
-            if (heroesHealth[i] < 100 && heroesHealth[i] > 0 && heroesHealth[i] != heroesHealth[indexMedic]) {
+            if (heroesHealth[i] < 100 && heroesHealth[i] > 0 && heroesHealth[i] != heroesHealth[indexMedic] &&
+                    heroesHealth[indexMedic] > 0) {
                 Random random = new Random();
                 int randomMedic = random.nextInt(heroesHealth.length);
                 if (heroesHealth[randomMedic] != heroesHealth[indexMedic]) {
                     heroesHealth[randomMedic] = heroesHealth[randomMedic] + medicHelp;
+                    System.out.println("Help " + medicHelp + " " + heroesAttackType[i]);
                     break;
                 }
             }
@@ -48,7 +50,7 @@ public class Main {
 
     public static void chooseBossDefenceType() {
         Random random = new Random();
-        int randNum = random.nextInt(heroesAttackType.length);  // 0 1 2
+        int randNum = random.nextInt(heroesAttackType.length - 1);
         bossDefenceType = heroesAttackType[randNum];
         System.out.println("Boss choose: " + bossDefenceType);
     }
